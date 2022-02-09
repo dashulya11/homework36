@@ -117,22 +117,21 @@ function createTemplate(
 
   const wrp = document.createElement("div");
   wrp.className = "taskWrapper";
-  mainWrp.append(wrp);
+  
 
-  wrp.innerHTML += ` <div class="col-sm-2 offset-md-10">
-            <a href="#" class="btn btn-sm btn-danger ml-5" name = "delTask">Delete Item</a>
-        </div>
-        `;
+  wrp.innerHTML += `
+      <a href="#" class="btn btn-sm btn-danger ml-5" name = "delTask">Delete Item</a>
+  `;
 
   const title = document.createElement("div");
   title.innerHTML = titleText;
   title.className = "taskHeading text-break";
-  wrp.append(title);
+  
 
   const description = document.createElement("div");
   description.innerHTML = descriptionText;
   description.className = "taskDescription text-break";
-  wrp.append(description);
+  
 
   const label = document.createElement("label");
   const input = document.createElement("input");
@@ -141,11 +140,13 @@ function createTemplate(
   if (completedFlag) {
     input.setAttribute("checked", "checked");
   }
-
+  wrp.prepend(label);
+  wrp.prepend(description);
+  wrp.prepend(title);
   label.append(input);
   label.innerHTML += " completed";
-
-  wrp.append(label);
-
+  
+  mainWrp.append(wrp);
+  
   return mainWrp;
 } 
