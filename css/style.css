@@ -35,3 +35,7 @@
 label {
   margin-top: 20px;
 }
+.clear-input {
+  background-color: red;
+  border: 2px solid red;
+}
